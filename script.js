@@ -30,9 +30,14 @@ class LinkedList {
     this.count++
   }
 
+  clear() {
+    this.head = null
+    this.count = 0
+  }
+
   pop() {
     if (!this.head) throw new Error("The Linked List is empty")
-    if (this.count === 1) this.clear()
+    if (this.count === 1) return this.clear()
     let current = this.head
     let previous;
     while (current.next) {
@@ -49,7 +54,7 @@ class LinkedList {
 const ll = new LinkedList()
 
 ll.push(200)
-ll.unshift(100)
-const hello = ll.pop()
-console.log(hello)
+ll.pop()
+// ll.unshift(100)
+// ll.clear()
 console.log(ll)
