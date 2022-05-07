@@ -77,6 +77,20 @@ class LinkedList {
     node.next = current
     this.count++
   }
+
+  removeAt(index) {
+    if (!this.head || index > this.count || index < 0) throw new Error("Invalid index")
+    if (index === 0) return this.shift()
+    let current = this.head;
+    let count = 0;
+    let previous;
+    while (count < index) {
+      previous = current
+      current = current.next
+      count++
+    }
+    previous.next = current.next
+  }
 }
 
 
@@ -89,5 +103,6 @@ ll.push(400)
 ll.push(500)
 ll.insertAt(2, 250)
 ll.shift()
+ll.removeAt(2)
 // console.log(first)
 ll.logData()
