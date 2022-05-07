@@ -19,6 +19,7 @@ class LinkedList {
   shift() {
     const initialHead = this.head
     this.head = this.head.next
+    this.count--
     return initialHead
   }
 
@@ -90,19 +91,7 @@ class LinkedList {
       count++
     }
     previous.next = current.next
+    this.count--
   }
 }
 
-
-const ll = new LinkedList()
-
-ll.push(100)
-ll.push(200)
-ll.push(300)
-ll.push(400)
-ll.push(500)
-ll.insertAt(2, 250)
-ll.shift()
-ll.removeAt(2)
-// console.log(first)
-ll.logData()
