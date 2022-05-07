@@ -5,7 +5,6 @@ class Node {
   }
 }
 
-
 class LinkedList {
   constructor() {
     this.head = null
@@ -48,13 +47,38 @@ class LinkedList {
     this.count--
     return current
   }
+
+  logData() {
+    let current = this.head
+    while (current) {
+      console.log(current.data)
+      current = current.next
+    }
+  }
+
+  insertAt(index, data) {
+    if (index === undefined || index > this.count || index < 0) throw new Error('Invalid Insertion Index')
+    const node = new Node(data)
+    const count = 0;
+    let current = this.head
+    let previous;
+    while (count < index) {
+      previous = current
+      current = current.next
+      count++
+    }
+    previous.next = node
+    node.next = current
+    this.count++
+  }
 }
 
 
 const ll = new LinkedList()
 
+ll.push(100)
 ll.push(200)
-ll.pop()
-// ll.unshift(100)
-// ll.clear()
-console.log(ll)
+ll.push(300)
+ll.push(400)
+ll.push(500)
+ll.logData()
