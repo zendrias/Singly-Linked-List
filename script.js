@@ -14,7 +14,7 @@ class LinkedList {
 
   unshift(data) {
     this.head = new Node(data, this.head)
-    count++
+    this.count++
   }
 
   push(data) {
@@ -29,9 +29,27 @@ class LinkedList {
     current.next = node
     this.count++
   }
+
+  pop() {
+    if (!this.head) {
+      throw new Error("The Linked List is empty")
+      return
+    }
+    let current = this.head
+    let previous;
+    while (current.next) {
+      previous = current
+      current = current.next
+    }
+    previous.next = null
+    this.count--
+  }
 }
 
 
 const ll = new LinkedList()
 
+// ll.push(200)
+// ll.unshift(100)
+ll.pop()
 console.log(ll)
