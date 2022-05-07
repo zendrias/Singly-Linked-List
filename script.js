@@ -16,6 +16,12 @@ class LinkedList {
     this.count++
   }
 
+  shift() {
+    const initialHead = this.head
+    this.head = this.head.next
+    return initialHead
+  }
+
   push(data) {
     // If There Is Nothing In The Linked List, It Will Be Assigned As The Head
     if (!this.head) return this.unshift(data)
@@ -82,4 +88,6 @@ ll.push(300)
 ll.push(400)
 ll.push(500)
 ll.insertAt(2, 250)
+ll.shift()
+// console.log(first)
 ll.logData()
